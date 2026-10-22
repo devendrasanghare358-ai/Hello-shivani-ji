@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise For Shivani Ji ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .greeting {
+            color: #ff477e;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        h2 {
+            color: #ff7096;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        p {
+            color: #6c757d;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            border: 2px solid #ffb3c6;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #ff477e;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+            max-width: 250px;
+            margin: 0 auto 20px auto;
+        }
+
+        .option-label {
+            font-size: 16px;
+            color: #495057;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #ff477e;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ff7096;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            position: relative;
+            height: 50px;
+        }
+
+        #noBtn {
+            background-color: #6c757d;
+            position: absolute;
+            margin-top: 0;
+        }
+
+        #yesBtn {
+            background-color: #2ecc71;
+        }
+        #yesBtn:hover {
+            background-color: #27ae60;
+        }
+
+        .heart-animation {
+            font-size: 50px;
+            animation: beat 0.6s infinite alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.2); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); text-shadow: 0 0 5px rgba(255, 71, 126, 0.2); }
+            100% { transform: scale(1.03); text-shadow: 0 0 15px rgba(255, 71, 126, 0.5); }
+        }
+
+        .success-message {
+            color: #2ecc71;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SCREEN 1: Level 1 Puzzle (Soft & Indirect Version) -->
+    <div class="container" id="puzzleBox1">
+        <div class="greeting">Hello Shivani Ji ❤️</div>
+        <div class="heart-animation">🧩</div>
+        <h2>Level 1: Chalo Ek Puzzle Solve Karo!</h2>
+        <p>Agar tumhaari smile is duniya ki sabse pyari cheez hai, aur uski value <b>100</b> hai... <br><br> Toh batao: <br> <b>50 + Tumhaari Cute Smile = ?</b></p>
+        <input type="number" id="puzzleAnswer" placeholder="???">
+        <br>
+        <button onclick="checkAnswer1()">Submit Answer</button>
+        <p id="errorMsg1" style="color: #ff477e; font-size: 14px; margin-top: 10px; display: none;">Oops! Galat jawaab. Thoda dhyan se socho! 😉</p>
+    </div>
+
+    <!-- SCREEN 2: Level 2 Puzzle (Multiple Choice Question) -->
+    <div class="container hidden" id="puzzleBox2">
+        <div class="greeting">Hello Shivani Ji ❤️</div>
+        <div class="heart-animation">✨</div>
+        <h2>Level 2: Sahi Option Chuno!</h2>
+        <p>Duniya ki sabse khoobsurat aur cute cheez kya hai? 🤔</p>
+        
+        <div class="options-group">
+            <label class="option-label"><input type="radio" name="beauty" value="wrong1"> Chand Aur Taare 🌟</label>
+            <label class="option-label"><input type="radio" name="beauty" value="correct"> Shivani Ji Ki Smile 🥰</label>
+            <label class="option-label"><input type="radio" name="beauty" value="wrong2"> Lal Gulaab Ka Phool 🌹</label>
+        </div>
+
+        <button onclick="checkAnswer2()">Next Step</button>
+        <p id="errorMsg2" style="color: #ff477e; font-size: 14px; margin-top: 10px; display: none;">Aise kaise! Ek baar fir se socho! 😜</p>
+    </div>
+
+    <!-- SCREEN 3: The Proposal Reveal Box -->
+    <div class="container hidden" id="proposalBox">
+        <div class="greeting">Hello Shivani Ji ❤️</div>
+        <div class="heart-animation">❤️</div>
+        <h2 style="color: #ff477e; font-size: 24px;">You Won! 😍</h2>
+        <p>Aapne dono levels bilkul sahi pass kiye hain! Kyunki aapki smile ke bina sab kuch adhura hai.</p>
+        <hr style="border: 0; height: 1px; background: #ffe5ec; margin: 20px 0;">
+        <h2 style="font-size: 26px; color: #ff477e;">Toh... Kya tum mere saath ek chhhoti si Date par chalogi? ✨</h2>
+        
+        <div class="btn-group">
+            <button id="yesBtn" onclick="celebrate()">Haan, Bilkul! 😍</button>
+            <button id="noBtn" onmouseover="moveNoButton()">Nahi 😜</button>
+        </div>
+        <div id="finalMessage" class="success-message hidden">Yayyy! See you soon! ❤️🌹</div>
+    </div>
+
+    <script>
+        function checkAnswer1() {
+            const answer = document.getElementById('puzzleAnswer').value;
+            const errorMsg = document.getElementById('errorMsg1');
+            
+            if (answer == 150) {
+                document.getElementById('puzzleBox1').classList.add('hidden');
+                document.getElementById('puzzleBox2').classList.remove('hidden');
+            } else {
+                errorMsg.style.display = 'block';
+                shakeBox('puzzleBox1');
+            }
+        }
+
+        function checkAnswer2() {
+            const selectedOption = document.querySelector('input[name="beauty"]:checked');
+            const errorMsg = document.getElementById('errorMsg2');
+
+            if (selectedOption && selectedOption.value === 'correct') {
+                document.getElementById('puzzleBox2').classList.add('hidden');
+                document.getElementById('proposalBox').classList.remove('hidden');
+            } else {
+                errorMsg.style.display = 'block';
+                shakeBox('puzzleBox2');
+            }
+        }
+
+        function shakeBox(boxId) {
+            const box = document.getElementById(boxId);
+            box.style.transform = 'translateX(10px)';
+            setTimeout(() => box.style.transform = 'translateX(-10px)', 100);
+            setTimeout(() => box.style.transform = 'translateX(0)', 200);
+        }
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 50);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 50);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('yesBtn').style.display = 'none';
+            document.getElementById('noBtn').style.display = 'none';
+            const finalMsg = document.getElementById('finalMessage');
+            finalMsg.classList.remove('hidden');
+            
+            alert("Sahi decision Shivani Ji! 😉 ❤️");
+        }
+    </script>
+</body>
+</html>
